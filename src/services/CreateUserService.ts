@@ -29,7 +29,7 @@ class CreateUserService {
 
     /* Se o usuário não existir, então esse será salvo dentro da BD */
     /* Para isso urge criar uma instância desse objeto */
-    const user = await usersRepository.create({
+    const user = usersRepository.create({
       name,
       email,
       admin
