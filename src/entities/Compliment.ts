@@ -1,9 +1,10 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, JoinColumn } from "typeorm"
+import { Entity, PrimaryColumn, Column, CreateDateColumn, JoinColumn, ManyToOne } from "typeorm"
 import { v4 as uuid } from "uuid"
 import { Tag } from "./Tag";
+import { User } from "./User";
 
 
-@Entity("Compliment")
+@Entity("Compliments")
 class Compliment {
   @PrimaryColumn()
   readonly id: string;
@@ -11,14 +12,23 @@ class Compliment {
   @Column()
   user_sender: string;
 
+  @JoinColumn({ name: "user_sender" })
+  @ManyToOne(() => User)
+  userSender: User
+
   @Column()
   user_receiver: string;
+
+  @JoinColumn({ name: "user_receiver" })
+  @ManyToOne(() => User)
+  userReceiver: User
 
   @Column()
   tag_id: string;
 
-  /* Sempre que houver algo consultando o BD, ele  */
+  /* Não entendi a função desse joinColumn :(  */
   @JoinColumn({ name: "tag_id" })
+  @ManyToOne(() => Tag)
   tag: Tag;
 
   @Column()
