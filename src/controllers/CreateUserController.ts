@@ -8,11 +8,11 @@ import { CreateUserService } from "../services/CreateUserService";
 class CreateUserController {
   async handle(request: Request, reponse: Response) {
     /* Nessa parte precisamos recuperar os parâmetros name, email e admin de dentro da requisição */
-    const { name, email, admin } = request.body;
+    const { name, email, admin, password } = request.body;
 
     const createUserService = new CreateUserService();
 
-    const user = await createUserService.execute({ name, email, admin });
+    const user = await createUserService.execute({ name, email, admin, password });
 
     return reponse.json(user);
   }
