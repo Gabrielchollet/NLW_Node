@@ -1,7 +1,7 @@
 /* Lista as tags que o usuário poderá adicionar na aplicação */
 import { getCustomRepository } from "typeorm";
 import { TagsRepositories } from "../repositories/TagsRepositories";
-
+import { classToPlain } from "class-transformer";
 
 class ListTagsService {
   async execute() {
@@ -9,7 +9,8 @@ class ListTagsService {
 
     const tags = await tagsRepositories.find();
 
-    return tags;
+    /* A função 'classToPlain' vai dentro da entidade tag e vai criar novos objetos apartir dos existentes vindos do TypeORM */
+    return classToPlain(tags);
   }
 }
 
