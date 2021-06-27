@@ -8,6 +8,7 @@ import { CreateComplimentController } from "./controllers/CreateComplimentContro
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ListUserSendComplimentsController } from "./controllers/ListUserSendComplimentsController";
 import { ListUserReceiveComplimentsController } from "./controllers/ListUserReceiveComplimentsController";
+import { ListTagsController } from "./controllers/ListTagsController";
 
 const router = Router();
 
@@ -17,9 +18,12 @@ const authenticateUserController = new AuthenticateUserController();
 const createComplimentController = new CreateComplimentController();
 const listUserSendComplimentsController = new ListUserSendComplimentsController();
 const listUserReceiveComplimentsController = new ListUserReceiveComplimentsController();
+const listTagsController = new ListTagsController();
 
 /* Rota para o cadastro das tags com o middleware ensureAdmin entre o path da rota e a função */
 router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handle);
+/* Ambas as rotas podem possuir o mesmo nome, pois os tipos de métodos são distintos */
+router.get("/tags", ensureAuthenticated, listTagsController.handle);
 
 /* Rota do usuário para inserir um usuário na aplicação */
 router.post("/users", createUserController.handle);
@@ -35,5 +39,6 @@ router.get("/users/compliments/send", ensureAuthenticated, listUserSendComplimen
 
 /* Rota para buscar a listagem de elogios recebidos */
 router.get("/users/compliments/receive", ensureAuthenticated, listUserReceiveComplimentsController.handle);
+
 
 export { router };
