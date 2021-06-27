@@ -4,7 +4,7 @@ import { CreateUserController } from "./controllers/CreateUserController";
 import { CreateTagController } from "./controllers/CreateTagController";
 import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
-import { CreateComplimentController } from "./controllers/CreateComplimentController"
+import { CreateComplimentController } from "./controllers/CreateComplimentController";
 
 const router = Router();
 
@@ -22,4 +22,4 @@ router.post("/login", authenticateUserController.handle);
 /* Rota para salvar o compliment */
 router.post("/compliments", createComplimentController.handle);
 
-export { router }
+export { router };

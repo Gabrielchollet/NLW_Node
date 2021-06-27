@@ -1,5 +1,5 @@
 /* Tudo que for relacionado à criação de usuário */
-import { getCustomRepository } from "typeorm"
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 /* Método responsável por encriptografar a senha do usuário */
 import { hash } from "bcryptjs";
@@ -13,7 +13,7 @@ interface IUserRequest {
 
 class CreateUserService {
   /* Do tipo async para trabalhar com promisse */
-  async execute({ name, email, admin, password }: IUserRequest) {
+  async execute({ name, email, admin = false, password }: IUserRequest) {
 
     const usersRepository = getCustomRepository(UsersRepositories);
 
@@ -24,8 +24,9 @@ class CreateUserService {
 
     /* Verificar se há um usuário cadastrado com esse email */
     const userAlreadyExists = await usersRepository.findOne({
-      email
-    })
+      email,
+    });
+
     if (userAlreadyExists) {
       throw new Error("User already exists");
     }
@@ -47,4 +48,4 @@ class CreateUserService {
   }
 }
 
-export { CreateUserService }
+export { CreateUserService };
