@@ -9,21 +9,21 @@ Projeto de back-end na linguagem Node.js para criação de elogios para usuário
 
 ## :file_folder: Estrutura do Projeto
 <pre>
-├──USER                                     ├──Tag                             ├──Team  
-├ ├──(PK) ID (uuid)                         ├ ├──(PK) ID (uuid)                ├ ├──(PK) ID (uuid)
-├  ├──name (varchar)                        ├  ├──name (varchar)               ├  ├──name (varchar)
-├  ├──name (varchar)                        ├  ├──created_at (Date)            ├  ├──created_at (Date)
-├  ├──name (varchar)                        ├  ├──updated_at (Date)            ├  ├──updated_at (Date)
+├──USER                                     ├──Tag                               
+├ ├──(PK) ID (uuid)                         ├ ├──(PK) ID (uuid)                
+├  ├──name (varchar)                        ├  ├──name (varchar)               
+├  ├──name (varchar)                        ├  ├──created_at (Date)            
+├  ├──name (varchar)                        ├  ├──updated_at (Date)            
 ├  ├──email (varchar)                       ⬇ 
 ├  ├──password (varchar)                    ⬇ 
 ├  ├──admin (boolean)                       ⬇ 
-├  ├──created_at (Date)                     ⬇
-├  ├──updated_at (Date)                         ├──Compliments                      ├──Notes
-⬇                                               ├ ├──(PK) ID (uuid)                 ├ ├──(PK) ID (uuid)
-⬇                                               ├  ├──(FK) user_sender (uuid)       ├  ├──(FK) user_name (uuid) 
-➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡        ├  ├──(FK) user_receiver (uuid)     ├  ├──(FK) user_target (uuid) 
-                                                ├  ├──(FK) tag_id (uuid)            ├  ├──(FK) team_id (uuid)
-                                                ├  ├──created_at (Date)             ├  ├──created_at (Date)
+├  ├──created_at (Date)                     
+├  ├──updated_at (Date)                   ├──Compliments                      
+⬇                                         ├ ├──(PK) ID (uuid)                 
+⬇                                         ├  ├──(FK) user_sender (uuid)        
+➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡  ├  ├──(FK) user_receiver (uuid)      
+                                          ├  ├──(FK) tag_id (uuid)            
+                                          ├  ├──created_at (Date)             
 
 
 </pre>
@@ -73,23 +73,18 @@ Projeto de back-end na linguagem Node.js para criação de elogios para usuário
 
 ##### POST
 - /tags: Criação de tags
-- /teams: Criação dos times
 
 #### Rotas Gerais
 
 ##### GET
 - /users: Busca todos os usuários
 - /tags: Busca todas as tags de elogio
-- /teams: Busca todos os times
-- /notes: Busca todas as anotações
 
 #### Rotas de Envio e Recebido do Usuário Logado
 
 ##### GET
 - /user/compliments/send: Busca todos os elogios enviados
 - /user/compliments/receive: Busca todos os elogios recebidos
-- /user/notes/send: Busca todos as anotações enviadas
-- /user/notes/receive: Busca todas as anotações recebidas
 
 </details>
 
@@ -113,11 +108,6 @@ Projeto de back-end na linguagem Node.js para criação de elogios para usuário
 - Cadastro de elogios
 - [x] Não é permitido um usuário cadastrar um elogio para si
 - [x] Não é permitido cadastrar elogios para usuários invalidos
-- [x] O usuário precisa estar autenticado na aplicação
-
-- Cadastro de notas
-- [x] Não é permitido um usuário cadastrar uma nota para si
-- [x] Não é permitido cadastrar notass para usuários invalidos
 - [x] O usuário precisa estar autenticado na aplicação
 </details>
 
