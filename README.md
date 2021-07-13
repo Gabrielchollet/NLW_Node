@@ -1,6 +1,6 @@
 # NLW VALORIZA
 > Projeto da semana Next Level Week
-Projeto de back-end na linguagem Node.js para criação de elogios para usuários e anotações para seus times, que são representados por suas linguagens de programação!
+Projeto de back-end na linguagem Node.js para criação de elogios para usuários.
 ## Sumário:
 - [Sobre](#about)
 - [Rotas e Regras](#routesandrules)
@@ -21,7 +21,7 @@ Projeto de back-end na linguagem Node.js para criação de elogios para usuário
 ├  ├──updated_at (Date)                   ├──Compliments                      
 ⬇                                         ├ ├──(PK) ID (uuid)                 
 ⬇                                         ├  ├──(FK) user_sender (uuid)        
-➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡  ├  ├──(FK) user_receiver (uuid)      
+➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡    ├  ├──(FK) user_receiver (uuid)      
                                           ├  ├──(FK) tag_id (uuid)            
                                           ├  ├──created_at (Date)             
 
@@ -1053,7 +1053,5 @@ class ListUsersService {
     }
 }
 ```
-
-Project Done #NeverStopLearning 💪💪💪
 
 </details>
