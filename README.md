@@ -21,7 +21,7 @@ Projeto de back-end na linguagem Node.js para criação de elogios para usuário
 ├  ├──updated_at (Date)                   ├──Compliments                      
 ⬇                                         ├ ├──(PK) ID (uuid)                 
 ⬇                                         ├  ├──(FK) user_sender (uuid)        
-➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡    ├  ├──(FK) user_receiver (uuid)      
+➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡➡    ├  ├──(FK) user_receiver (uuid)      
                                           ├  ├──(FK) tag_id (uuid)            
                                           ├  ├──created_at (Date)             
 
